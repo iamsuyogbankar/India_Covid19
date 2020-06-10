@@ -1,0 +1,48 @@
+<ngx-spinner bdColor="rgba(166,113,19,0.02)" size="medium" color="rgba(21,19,19,0.92)" type="line-spin-clockwise-fade"
+    [fullScreen]="true">
+    <!-- <p style="color: white"> Loading... </p> -->
+</ngx-spinner>
+<div class="container">
+    <div class="col-md-12">
+        <div class="text-center mt-5">
+            <div *ngIf="essentials.length <= 0; else img">
+                <h1>Search for Essentials and Services</h1>
+            </div>
+        </div>
+        <ng-template #img>
+            <img src="https://www.covid19india.org/essentials_2.svg" alt="" width="20%" height="20%" style="margin: -50px; margin-left: -134px;">
+            <img src="https://www.covid19india.org/essentials_1.svg" alt="" width="20%" height="20%" style="margin: -50px; margin-left: -170px;">
+        </ng-template>
+    </div>
+
+    <div class="container">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="row parent mx-auto">
+                <input class="form-control searchInput mr-5" type="search" name="location" id="location"
+                    placeholder="Enter any City Name" required #searchInput width="286px" [(ngModel)]="isEmpty"
+                    (keyup)="inputLength()">
+                <button type="button" class="btn btn-dark" (click)="getSerchInput(searchInput.value)">Search</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="col-md-12 col-sm-12 col-sm-4">
+        <div class="row">
+            <div class="col-md-4 mb-3" *ngFor="let service of essentials | slice:0:30">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- <div class="row"> -->
+                        <h5 class="card-title">{{service?.category}}</h5>
+                        <!-- <p class="card-text">{{service.descriptionandorserviceprovided}}</p> -->
+                        <p class="card-text">{{service?.nameoftheorganisation}}</p>
+                        <p class="card-text"><strong> {{service?.phonenumber}} </strong></p>
+                        <a href="{{service?.contact || 'N/A'}}" class="btn btn-dark" target="_blank">Get Details</a>
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

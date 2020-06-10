@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- <a class="navbar-brand" href="https://www.covid19-tracker.in/img/covid19-logo.png"></a> -->
+    <img class="logoImg" src="https://www.covid19-tracker.in/img/covid19-logo.png">
+    <!-- <sup class="blink">Live</sup> -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <!-- <li class="nav-item active ">
+                <a class="nav-link navClr" href="#" style="color: #788088;">Home </a>
+            </li> -->
+            <li class="nav-item ">
+                <a class="nav-link navClr" routerLink="home" routerLinkActive="active"
+                    (click)="getRouteName('home')">India</a>
+            </li>
+            <li class="nav-item ">
+                <!-- <a class="nav-link navClr" href="#">WorldWide</a> -->
+                <a class="nav-link navClr" routerLink="world-count" routerLinkActive="active"
+                    (click)="getRouteName('world-count')">Global</a>
+            </li>
+            <li class="nav-item ">
+                <!-- <a class="nav-link navClr" href="#">WorldWide</a> -->
+                <a class="nav-link navClr" routerLink="chart-details" routerLinkActive="active"
+                    (click)="getRouteName('chart-details')">Chart-DeepDive</a>
+            </li>
+            <li class="nav-item ">
+                <!-- <a class="nav-link navClr" href="#">WorldWide</a> -->
+                <a class="nav-link navClr" routerLink="precaution/symptoms" routerLinkActive="active"
+                    (click)="getRouteName('chart-details')">Symptoms</a>
+            </li>
+            <li class="nav-item ">
+                <!-- <a class="nav-link navClr" href="#">WorldWide</a> -->
+                <a class="nav-link navClr" routerLink="precaution/prevantion" routerLinkActive="active"
+                    (click)="getRouteName('chart-details')">Prevantion</a>
+            </li>
+            <li class="nav-item ">
+                <!-- <a class="nav-link navClr" href="#">WorldWide</a> -->
+                <a class="nav-link navClr" routerLink="essentials" routerLinkActive="active" (click)="getRouteName('essentials')">Essentials</a>
+            </li>
+
+        </ul>
+        <div class="navbar-text" *ngIf="isShowStatData">
+            <!-- <li class="nav-item"> -->
+            <button class="btn btn-success success-hover statesCSRData">
+                <!-- <a class="text-white state-data" href="https://api.covid19india.org/csv/latest/state_wise.csv">States CSV Report</a> -->
+                <a class="text-white" href="https://play.google.com/store/apps/details?id=nic.goi.aarogyasetu&hl=en_IN"
+                    target="_blank">Download <img src="https://web2.eu5.org/images/arogya.png" height="20px" width="30px">  Arogya Setu</a>
+
+            </button>
+            <!-- </li> -->
+        </div>
+    </div>
+</nav>
+<!-- <div class="public-message text-center" *ngFor="let banner of bannerData">
+   <marquee behavior="" direction="row"> {{banner.banner}} </marquee>
+</div>
+ -->
+<div *ngIf="name == 0" class="public-message text-center">
+    <span class="public-text">Be considerate. While buying essentials remember that you need to share with 130 crore
+        fellow citizens!</span>
+</div>
+<div class="public-message text-center" *ngIf="name">
+    <!-- <marquee behavior="" direction="row"> {{name}} </marquee> -->
+    <span class="public-text">{{name}}</span>
+</div>
+
+
+<!-- 
+ <ng-template #msg class="public-message text-center">
+     <span>Be considerate. While buying essentials remember that you need to share with 130 crore fellow citizens!</span>
+ </ng-template> -->

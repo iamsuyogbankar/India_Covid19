@@ -1,0 +1,120 @@
+.logoImg{
+  width: 186px;
+  height: 42px;
+   margin: 13px;
+}
+
+.blink{
+  -webkit-animation: blink 2s linear infinite;
+  animation: blink 2s linear infinite;
+  color: #c5322f;
+}
+sup{
+  position: relative;
+    font-size: 75%;
+    line-height: 0;
+    vertical-align: baseline;
+}
+.navbar{
+    background-color: #f6f6f7 !important;
+    display: flex;
+    flex-direction: row;
+    height: 4.5rem;
+    justify-content: space-around;
+    text-transform: uppercase;
+    /* font-weight: 900; */
+    align-items: center;
+    -webkit-animation-name: u7077a2ec;
+    animation-name: u7077a2ec;
+    -webkit-animation-duration: .75s;
+    animation-duration: .75s;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    animation-delay: 0.5s;
+    background-color: #e7e8ea;
+    transition: all 0.3s ease-in-out 0s;
+    background-color: white;
+    /* padding: 2.5rem 7rem; */
+    padding: 2.5rem 4rem;
+}
+
+.navbar-brand{
+  font-size: 1.5rem;
+    font-weight: 700;
+    color: #8ac6d1;
+    /* margin-right: 4px */
+}
+.public-message{
+    line-height: 40px;
+    font-family: "Archia";
+    font-size: .9rem;
+    font-weight: 600;
+    /* color: rgba(32,26,162,.866667); */
+    /* background: rgba(32,26,162,.12549); */
+    background: #50a4b5;
+    /* padding: 10px; */
+    color: #fff;
+    text-align: center;
+    animation: transitionIn 0.95s;
+
+}
+.public-text, .statesCSRData{
+    animation: transitionIn 0.95s;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.statesCSRData{
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+}
+
+@keyframes transitionIn {
+    from {
+      opacity: 0;
+      transform: rotateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: rotateX(0);
+    }
+  }
+
+  /* .carousel {
+    animation: transitionIn 0.95s;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    // background-color:green;
+    // background-image:url('assets/backgroundImage/backgroundImage.png');
+  } */
+
+  .state-data{
+    cursor: pointer;
+    text-decoration: none;;
+  }
+
+  .active{
+    color: green;
+     /* border-bottom: solid red;  */
+     border-width: 3px;
+    /* -webkit-animation: circle 1.5s ease-in forwards; */
+
+  }
+  /* navClr:hover{
+    color: tomato;
+  } */
+
+  a.nav-link.navClr.active{
+    background: antiquewhite;
+    /* background-color: #e1eeff; */
+    /* color: #2280fe; */
+    /* animation: transitionIn 0.95s; */
+    color: brown;
+    font-weight: 800;
+    /* border-radius: 10px; */
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    /* transition: 1s; */
+  }

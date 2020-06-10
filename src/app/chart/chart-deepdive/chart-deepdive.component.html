@@ -1,0 +1,53 @@
+<!-- <p>chart-deepdive works!</p> -->
+<!-- <div class="chart-wrapper">
+    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+        [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+    </canvas>
+</div> -->
+
+<ngx-spinner bdColor="rgba(166,113,19,0.02)" size="medium" color="rgba(21,19,19,0.92)" type="line-spin-clockwise-fade"
+    [fullScreen]="true">
+    <p style="color: white"> Loading... </p>
+</ngx-spinner>
+
+<div class="contaier">
+    <div *ngIf="chart">
+        <div class="text-center mt-3 mb-3">
+            <span class="text-success"><strong> Total No Of Cases in India</strong></span>
+        </div>
+
+        <canvas id="canvas">{{ chart }}</canvas>
+
+        <div class="text-center mb-3">
+            <span class="text-danger"><strong> States Name </strong></span>
+        </div>
+    </div>
+</div>    
+
+<!-- 
+<div style="display: block">
+    <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
+        (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+</div> -->
+
+<!-- <div *ngIf="lineChart">
+        <div class="text-center mt-3 mb-3">
+            <span class="text-success"><strong> line Chart Lable</strong></span>
+        </div>
+        
+        <canvas id="canvas">{{ lineChart }}</canvas>
+        
+        <div class="text-center mb-3">
+            <span class="text-danger"><strong> value </strong></span>
+        </div>
+    </div> -->
+<!-- </div> -->
+
+<!-- <div style="display: block">
+    <canvas baseChart
+            [data]="allGender"
+            [labels]="pieChartLabels"
+            [chartType]="pieChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></canvas>
+  </div> -->

@@ -1,0 +1,137 @@
+<ngx-spinner bdColor="rgba(166,113,19,0.02)" size="medium" color="rgba(21,19,19,0.92)" type="line-spin-clockwise-fade"
+    [fullScreen]="true">
+    <!-- <p style="color: white"> Loading... </p> -->
+</ngx-spinner>
+<div class="container">
+    <div class="text-center text-danger heading">
+        <h3>COVID-19 LIVE UPDATES OF INDIA</h3>
+        <span class="text-success">LAST UPDATED <strong>{{lastUpdates}}</strong></span>
+    </div>
+
+    <div class="container card-container">
+        <div class="row card-row" *ngFor="let data of total">
+            <div class="card col-md-3 mr-4" id="totalConfirmed">
+                <div class="card-body text-center">
+                    <p class="card-title text-uppercase">
+                        Total Confirmed
+                    </p>
+                    <p class="card-text">
+                        {{data.confirmed}}
+                    </p>
+                </div>
+            </div>
+
+            <div class="card col-md-3 mr-4" id="activeCases">
+                <div class="card-body text-center">
+                    <p class="card-title text-uppercase">
+                        Active Cases
+                    </p>
+                    <p class="card-text">
+                        {{data.active}}
+                    </p>
+                </div>
+            </div>
+
+            <div class="card col-md-3 mr-4" id="totalRecovered">
+                <div class="card-body text-center">
+                    <p class="card-title text-uppercase">
+                        Total Recovered
+                    </p>
+                    <p class="card-text">
+                        {{data.recovered}}
+                    </p>
+                </div>
+            </div>
+
+            <div class="card col-md-3" id="totalDeaths">
+                <div class="card-body text-center">
+                    <p class="card-title text-uppercase">
+                        Total Deaths
+                    </p>
+                    <p class="card-text">
+                        {{data.deaths}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="search mr-auto">
+        <input class="form-control fWidth" type="search" name="search" [(ngModel)]="searchText" autocomplete="on"
+            placeholder="Start searching by State Name or Anything">
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped text-center">
+            <thead id="table-header">
+                <tr>
+                    <th>Last Update Time</th>
+                    <th>State</th>
+                    <th>Confirmed Cases</th>
+                    <th>Active</th>
+                    <th>Recovered</th>
+                    <th>Total Deaths</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of getStatusData | filter:searchText">
+                    <!-- <tr *ngFor="let data of getStatusData"> -->
+                    <td>{{data.lastupdatedtime}}</td>
+                    <td id="selectState text-anchor" (click)="getDistrictDetails(data.state)"><a
+                            href="javascript:void(0)" data-toggle="modal" data-target="#exampleModalCenter">
+                            {{data.state}} </a></td>
+                    <td>{{data.confirmed}}</td>
+                    <td>{{data.active}}</td>
+                    <td>{{data.recovered}}</td>
+                    <td>{{data.deaths}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true" *ngIf="isModalshow">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-uppercase" id="exampleModalLongTitle">
+                    {{stateName}}
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped text-center">
+                        <thead id="table-header">
+                            <tr>
+                                <th>District</th>
+                                <th>Confirm</th>
+                                <th>Active</th>
+                                <th>Recovered</th>
+                                <th>Deaths</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of arr">
+                                <td [ngStyle]="{'background-color': this.zoneColor, 'color': 'black'}">{{data.key}}</td>
+                                <td>{{data.value.confirmed}}</td>
+                                <td>{{data.value.active}}</td>
+                                <td>{{data.value.recovered}}</td>
+                                <td>{{data.value.deceased}}</td>
+                            </tr>
+                            <tr class="p-5" *ngIf="arr.length < 0">
+                                <h2>No Record Found</h2>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

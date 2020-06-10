@@ -1,0 +1,109 @@
+<ngx-spinner bdColor="rgba(166,113,19,0.02)" size="medium" color="rgba(21,19,19,0.92)" type="line-spin-clockwise-fade"
+    [fullScreen]="true">
+    <!-- <p style="color: white"> Loading... </p> -->
+</ngx-spinner>
+
+<div class="container-fluid">
+    <div class="text-center text-danger heading">
+        <h3>COVID-19 LIVE UPDATES OF THE World </h3>
+        <span class="text-success">LAST UPDATED <strong> {{lastUpdates | date:'short'}} </strong></span>
+    </div>
+
+    <!-- <span [CountTo]="count.countTo" [from]="count.from" [duration]="count.duration"></span> -->
+
+    <div class="row countryName mb-5">
+        <div class="mx-auto">
+            <!-- <label> Select Country </label> -->
+            <select class="form-control" (change)="getCountry($event.target.value)" style="width: auto;">
+                <option value="">Select Country Name</option>
+                <option *ngFor="let name of countries" value="{{name.Country}}">
+                    {{name.Country}}
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <div class="container card-container">
+        <div class="row card-row" *ngFor="let data of globalData">
+            <div class="card col-md-3 mr-4" id="totalConfirmed">
+                <div class="card-body text-center">
+                    <p class="card-title text-uppercase">
+                        Total Confirmed
+                    </p>
+                    <p class="card-text" *ngIf="isShowGlobalData">
+                        {{data.TotalConfirmed}}
+                    </p>
+                    <p class="card-text">{{counTotalConfirm}}</p>
+                </div>
+            </div>
+
+            <div class="card col-md-3 mr-4" id="activeCases">
+                <div class="card-body text-center">
+                    <p class="card-title text-uppercase">
+                        Active Cases
+                    </p>
+                    <p class="card-text">{{aciveCases}}</p>
+                </div>
+            </div>
+
+            <div class="card col-md-3 mr-4" id="totalRecovered">
+                <div class="card-body text-center">
+                    <p class="card-title text-uppercase">
+                        Total Recovered
+                    </p>
+                    <p class="card-text" *ngIf="isShowGlobalData">
+                        {{data.TotalRecovered}}
+                    </p>
+                    <p class="card-text">{{counTotalRecovered}}</p>
+                </div>
+            </div>
+
+            <div class="card col-md-3" id="totalDeaths">
+                <div class="card-body text-center">
+                    <p class="card-title text-uppercase">
+                        Total Deaths
+                    </p>
+                    <p class="card-text" *ngIf="isShowGlobalData">
+                        {{data.TotalDeaths}}
+                    </p>
+                    <p class="card-text">{{counTotalDeathes}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="search mr-auto">
+        <input class="form-control fWidth" type="search" name="search" [(ngModel)]="searchCountry" autocomplete="on"
+            placeholder="Start searching by Country Name or Country Code">
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped text-center">
+            <thead id="table-header">
+                <tr>
+                    <th>Date</th>
+                    <th>Country | CountryCode</th>
+                    <th>NewConfirmed</th>
+                    <th>TotalConfirmed</th>
+                    <th>NewDeaths</th>
+                    <th>Total Deaths</th>
+                    <th>New Recovered</th>
+                    <th>Total Recovered</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of worldData | filter:searchCountry">
+                    <td>{{data.Date | date:'short'}}</td>
+                    <td>{{data.Country}} | {{data.CountryCode}}</td>
+                    <td>{{data.NewConfirmed}}</td>
+                    <td>{{data.TotalConfirmed}}</td>
+                    <td>{{data.NewDeaths}}</td>
+                    <td>{{data.TotalDeaths}}</td>
+                    <td>{{data.NewRecovered}}</td>
+                    <td>{{data.TotalRecovered}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

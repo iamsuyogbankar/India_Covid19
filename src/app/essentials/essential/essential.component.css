@@ -1,0 +1,39 @@
+.parent {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 70px;
+}
+
+.card{
+    height: 100%;
+    border-radius: 36px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    /* border: 1px solid black; */
+}
+
+.searchInput {
+    width: 40%;
+    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.2);   
+    font-family: inherit;
+    border-radius: 2.5rem;
+    height: 47px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+.btn-dark{
+    transform: translateY(-2px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    transition: all .4s;
+    border-radius: 2.5rem;
+}
+
+.fadeInUp{
+    animation-duration: .45s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+}
