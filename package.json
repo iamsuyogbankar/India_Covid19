@@ -23,7 +23,7 @@
     "angular-count-to": "0.0.3",
     "bootstrap": "^4.5.0",
     "chart.js": "^2.9.3",
-    "firebase-admin": "^8.12.1",
+    "firebase-admin": "^11.10.0",
     "jquery": "^3.5.1",
     "ng2-charts": "^2.3.2",
     "ng2-search-filter": "^0.5.1",
